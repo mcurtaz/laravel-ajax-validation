@@ -15,7 +15,12 @@
                             <label for="title" class="col-md-4 col-form-label text-md-right">Title:</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="title">
+                                <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}">
+                                @error('title')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -23,8 +28,14 @@
                             <label for="body" class="col-md-4 col-form-label text-md-right">Body:</label>
 
                             <div class="col-md-6">
-                                <textarea class="form-control" name="body" rows="8" >
+                                <textarea class="form-control @error('body') is-invalid @enderror" name="body" rows="8" >
+                                    {{ old('body') }}
                                 </textarea>
+                                @error('body')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -32,7 +43,12 @@
                             <label for="like" class="col-md-4 col-form-label text-md-right">Likes:</label>
 
                             <div class="col-md-6">
-                                <input type="number" class="form-control" name="like">
+                                <input type="number" class="form-control @error('like') is-invalid @enderror" name="like" value="{{ old('like') }}">
+                                @error('like')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -40,7 +56,12 @@
                             <label for="tag" class="col-md-4 col-form-label text-md-right">Tags:</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="tag">
+                                <input type="text" class="form-control  @error('tag') is-invalid @enderror" name="tag" value="{{ old('tag') }}">
+                                @error('tag')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 

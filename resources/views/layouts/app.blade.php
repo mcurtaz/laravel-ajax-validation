@@ -26,6 +26,9 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Boolean Posts
                 </a>
+                <a class="btn btn-primary ml-auto" href=" {{ route('post-create') }} ">
+                    New Post
+                </a>
             </div>
         </nav>
 

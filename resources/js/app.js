@@ -7,13 +7,24 @@ $(document).ready(init);
 function init(){
     
     getPosts();
+
+    topCheckboxListener();
     
 }
 
 function getPosts(){
 
+    var url = '/api/all';
+
+    var isTopTenChecked = $('#top-checkbox').is(':checked');
+
+    if(isTopTenChecked) {
+        
+        url = '/api/topten'
+    }
+
     $.ajax({
-        url: '/api/all',
+        url: url,
         method: 'GET',
         success: function(posts){
 
@@ -44,4 +55,14 @@ function printPosts(posts){
         target.append(postHtml);
         
     }
+}
+
+function topCheckboxListener(){
+    
+    $('#top-checkbox').change(function(){
+        
+        getPosts();
+
+    });
+    
 }

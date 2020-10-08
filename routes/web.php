@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PostController@index') -> name('post-index');
 
 Route::get('/api/all', 'PostController@apiAll') -> name('api-all');
+
+Route::get('/api/topten', 'PostController@apiTop') -> name('api-top');
+
+Route::get('/create', 'PostController@create') -> name('post-create');
+
+Route::post('/create', 'PostController@store') -> name('post-store');

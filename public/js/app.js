@@ -30221,11 +30221,19 @@ $(document).ready(init);
 
 function init() {
   getPosts();
+  topCheckboxListener();
 }
 
 function getPosts() {
+  var url = '/api/all';
+  var isTopTenChecked = $('#top-checkbox').is(':checked');
+
+  if (isTopTenChecked) {
+    url = '/api/topten';
+  }
+
   $.ajax({
-    url: '/api/all',
+    url: url,
     method: 'GET',
     success: function success(posts) {
       printPosts(posts);
@@ -30245,6 +30253,12 @@ function printPosts(posts) {
     var postHtml = "<div class=\"card-header\">".concat(post['title'], "</div><div class=\"card-body\"> ").concat(post['body'], " </div>");
     target.append(postHtml);
   }
+}
+
+function topCheckboxListener() {
+  $('#top-checkbox').change(function () {
+    getPosts();
+  });
 }
 
 /***/ }),
