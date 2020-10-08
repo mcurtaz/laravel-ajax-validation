@@ -9,8 +9,13 @@ class PostController extends Controller
 {
     public function index(){
 
+        return view('posts.index');
+    }
+
+    public function apiAll(){
+
         $posts = Post::all();
 
-        return view('posts.index', compact('posts'));
+        return response() ->json($posts);
     }
 }

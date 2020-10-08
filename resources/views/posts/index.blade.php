@@ -4,17 +4,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            @foreach ($posts as $post)
-            <div class="card mt-2 mb-3">
+            <div id="post-container" class="card mt-2 mb-3">
                 <div class="card-header">
-                        {{ $post -> title }}
+                        {{-- {{ $post -> title }} --}}
                 </div>
 
                 <div class="card-body">
-                    {{ $post -> body }}
+                    {{-- {{ $post -> body }} --}}
                 </div>
             </div>           
-            @endforeach
         </div>
     </div>
 </div>

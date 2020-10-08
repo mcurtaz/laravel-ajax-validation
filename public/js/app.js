@@ -30217,6 +30217,35 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(document).ready(init);
+
+function init() {
+  getPosts();
+}
+
+function getPosts() {
+  $.ajax({
+    url: '/api/all',
+    method: 'GET',
+    success: function success(posts) {
+      printPosts(posts);
+    },
+    error: function error(err) {
+      console.log('err', err);
+    }
+  });
+}
+
+function printPosts(posts) {
+  target = $('#post-container');
+  target.html('');
+
+  for (var i = 0; i < posts.length; i++) {
+    var post = posts[i];
+    var postHtml = "<div class=\"card-header\">".concat(post['title'], "</div><div class=\"card-body\"> ").concat(post['body'], " </div>");
+    target.append(postHtml);
+  }
+}
 
 /***/ }),
 
